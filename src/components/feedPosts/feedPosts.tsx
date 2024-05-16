@@ -36,9 +36,9 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
         searchValue={searchValue}
         setSearchValue={(val: string) => setSearchValue(val)}
       />
-      <div className={s.grid_feed_container}>
-        {filteredPosts.length !== 0 &&
-          filteredPosts?.map((item: any, idx: number) => {
+      {filteredPosts?.length !== 0 && (
+        <div className={s.grid_feed_container}>
+          {filteredPosts?.map((item: any, idx: number) => {
             return (
               <FeedCard
                 data={item}
@@ -48,7 +48,8 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
               />
             );
           })}
-      </div>
+        </div>
+      )}
       {filteredPosts.length === 0 && (
         <EmptyState
           title="Houston we have a problem!"
