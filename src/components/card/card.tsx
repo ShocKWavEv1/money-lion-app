@@ -41,7 +41,6 @@ const FeedCard: React.FC<CardProps> = ({
           alt="title"
           width={200}
           height={250}
-          layout="cover"
           className={s.card_image}
         />
       </div>

@@ -1,16 +1,23 @@
+"use client";
+
 import Image from "next/image";
 import s from "./avatar.module.scss";
 import { AvatarProps } from "./model";
 import { handleDynamicBackgroundColor, handleNameAvatar } from "@/utils/utils";
+import { useState } from "react";
 
 const Avatar: React.FC<AvatarProps> = ({ width, height, image, textData }) => {
+  const [backgroundColor] = useState<string>(() =>
+    handleDynamicBackgroundColor()
+  );
+
   return (
     <div
       className={s.avatar_container}
       style={{
         width: width,
         height: height,
-        backgroundColor: handleDynamicBackgroundColor(),
+        backgroundColor: backgroundColor,
       }}
     >
       {image ? (

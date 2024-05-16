@@ -5,7 +5,7 @@ import Image from "next/image";
 const EmptyState: React.FC<EmptyStateProps> = ({ title, description }) => {
   return (
     <div className={s.empty_state_container}>
-      <div style={{ width: "100%", height: "500px" }}>
+      <div style={{ width: "100%", height: "450px" }}>
         <Image
           src="https://illustrations.popsy.co/gray/crashed-error.svg"
           alt="No results found"

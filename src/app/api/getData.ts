@@ -13,9 +13,7 @@ export default async function getData(): Promise<any> {
 
     const contentData = response.data.contentCards;
 
-    const filteredData = contentData;
-
-    const sortedData = filteredData.sort(
+    const sortedData = contentData.sort(
       (a: any, b: any) => b.priority - a.priority
     );
 

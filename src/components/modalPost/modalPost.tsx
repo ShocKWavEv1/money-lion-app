@@ -7,8 +7,16 @@ import CommentItem from "../commentItem/commentItem";
 const ModalPost: React.FC<ModalPostProps> = ({ currentPost, setModal }) => {
   return (
     <div className={s.backdrop} onClick={() => setModal()} aria-hidden="true">
-      <div className={s.modal_card_container}>
-        <div className={s.modal_card_sticky_nav}>
+      <div
+        aria-hidden="true"
+        className={s.modal_card_container}
+        onClick={(e: any) => e.stopPropagation()}
+      >
+        <div
+          aria-hidden="true"
+          className={s.modal_card_sticky_nav}
+          onClick={() => setModal()}
+        >
           <div className={s.modal_card_sticky_button}>
             <div className={s.modal_card_icon_container}>
               <FiChevronLeft fontSize={"22px"} />
@@ -23,7 +31,6 @@ const ModalPost: React.FC<ModalPostProps> = ({ currentPost, setModal }) => {
             alt="title"
             width={200}
             height={230}
-            layout="cover"
           />
         </div>
         <div className={s.modal_card_body_container}>
