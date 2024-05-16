@@ -51,10 +51,8 @@ const FeedCard: React.FC<CardProps> = ({
       </div>
       <div className={s.card_body_container}>
         <div className={s.card_body_title_container}>
-          <div className={s.card_body_title}>{title ? title : "-"}</div>
-          <div className={s.card_body_subtitle}>
-            {subTitle ? subTitle : "-"}
-          </div>
+          <div className={s.card_body_title}>{title || "-"}</div>
+          <div className={s.card_body_subtitle}>{subTitle || "-"}</div>
         </div>
         <div className={s.card_body_text_snippet}>{body}</div>
       </div>

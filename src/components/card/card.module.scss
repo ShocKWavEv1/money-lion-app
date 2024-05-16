@@ -69,6 +69,10 @@
       .card_body_title {
         font-size: 24px;
         text-transform: capitalize;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
       }
 
       .card_body_subtitle {
