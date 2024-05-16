@@ -1,0 +1,41 @@
+.filter_content {
+  width: 100%;
+  min-height: 60px;
+  padding: 18px 20px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  .filter_text_input {
+    width: 300px;
+    position: relative;
+    input {
+      width: 100%;
+      background-color: white;
+      padding: 12px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+      font-size: 16px;
+      color: black;
+      border: 1px solid #ddd;
+    }
+
+    .filter_text_input_icon {
+      width: auto;
+      height: 100%;
+      padding: 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

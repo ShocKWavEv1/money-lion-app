@@ -1,0 +1,3 @@
+interface FilterProps {
+  isSticky: boolean;
+}

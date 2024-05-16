@@ -1,0 +1,109 @@
+.backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100svh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal_card_container {
+    width: 70vw;
+    height: 100svh;
+    background-color: white;
+    overflow-y: scroll;
+    padding: 0px 20px;
+
+    .modal_card_sticky_nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: sticky;
+      top: 0;
+      background-color: white;
+      padding: 20px 0px;
+
+      .modal_card_sticky_button {
+        padding: 8px 16px;
+        background-color: white;
+        border-radius: 50em;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+
+        .modal_card_icon_container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .modal_card_sticky_button:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .modal_card_image_container {
+      width: 100%;
+      height: 35vw;
+
+      .modal_card_image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .modal_card_body_container {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px 0px;
+      gap: 20px;
+
+      .modal_card_title_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .modal_card_title {
+          font-size: 40px;
+          text-transform: capitalize;
+        }
+
+        .modal_card_subtitle {
+          font-size: 24px;
+          text-transform: capitalize;
+        }
+      }
+
+      .modal_card_body_text_container {
+        width: 100%;
+        font-size: 18px;
+        text-transform: capitalize;
+      }
+
+      .modal_card_comments_container {
+        width: 100%;
+        font-size: 22px;
+        text-transform: capitalize;
+      }
+
+      .modal_card_comments_list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+}
