@@ -21,8 +21,6 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
           post.title.toLowerCase().includes(searchValue.toLowerCase())
         );
         setFilteredPosts(filtered);
-      } else {
-        setFilteredPosts(contentCards);
       }
     }, 300);
 
