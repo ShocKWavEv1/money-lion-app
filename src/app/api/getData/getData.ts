@@ -31,7 +31,6 @@ export default async function getData(): Promise<any> {
     const sortedData = transformedData?.sort(
       (a: any, b: any) => b.priority - a.priority
     );
-
     return sortedData;
   } catch (error) {
     throw new ApiFailedError();
