@@ -2,7 +2,7 @@
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
-  height: 100svh;
+  height: 100vh;
   top: 0;
   bottom: 0;
   left: 0;
@@ -13,7 +13,9 @@
 
   .modal_card_container {
     width: 70vw;
-    height: 100svh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: white;
     overflow-y: scroll;
     padding: 0px 20px;
