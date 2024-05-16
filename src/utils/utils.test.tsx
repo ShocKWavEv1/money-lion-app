@@ -50,7 +50,6 @@ describe("handleDynamicBackgroundColor function", () => {
     expect(typeof color).toBe("string");
     expect(rgbRegex.test(color)).toBe(true);
 
-    // Extracting the RGB components from the color string
     const [, red, green, blue] = rgbRegex.exec(color) || [];
     expect(Number(red)).toBeGreaterThanOrEqual(0);
     expect(Number(red)).toBeLessThanOrEqual(255);

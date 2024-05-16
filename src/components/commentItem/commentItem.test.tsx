@@ -14,7 +14,7 @@ describe("CommentItem component", () => {
 
     expect(getByText(comment.author)).toBeDefined();
     expect(getByText(comment.text)).toBeDefined();
-    expect(getByText(`${comment.likes} likes`)).toBeDefined(); // Assuming likes are rendered as text
+    expect(getByText(`${comment.likes} likes`)).toBeDefined();
   });
 
   it("renders avatar with profile picture", () => {

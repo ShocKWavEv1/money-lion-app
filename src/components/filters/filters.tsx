@@ -6,13 +6,6 @@ const Filters: React.FC<FilterProps> = ({
   searchValue,
   setSearchValue,
 }) => {
-  /*const options: any = [
-    { id: 0, label: "Sort by priority", value: "priority" },
-    { id: 1, label: "Sort by date", value: "priority" },
-    { id: 2, label: "Sort by likes", value: "priority" },
-    { id: 3, label: "Sort by comments", value: "priority" },
-  ];*/
-
   return (
     <div className={s.filter_content}>
       <div className={s.filter_text_input}>

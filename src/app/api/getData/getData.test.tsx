@@ -63,7 +63,6 @@ describe("getData function", () => {
   });
 
   test("getData throws ApiFailedError on API error", async () => {
-    // Simulate error scenario using mock adapter
     mock
       .onGet(process.env.API_BASE_ROUTE)
       .reply(() => Promise.reject(new Error("API request failed")));

@@ -1,18 +1,9 @@
 import { FooterProps } from "./model";
+import s from "./footer.module.scss";
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "50px",
-        backgroundColor: "black",
-        color: "white",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className={s.footer_container}>
       Challenge made with Next | React | SASS & SSR
     </div>
   );
