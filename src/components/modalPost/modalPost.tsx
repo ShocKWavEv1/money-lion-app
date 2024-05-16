@@ -7,13 +7,19 @@ import CommentItem from "../commentItem/commentItem";
 const ModalPost: React.FC<ModalPostProps> = ({ currentPost, setModal }) => {
   const { title, subTitle, body, imageUri, comments } = currentPost;
   return (
-    <div className={s.backdrop} onClick={() => setModal()} aria-hidden="true">
+    <div
+      data-testid="backdrop"
+      className={s.backdrop}
+      onClick={() => setModal()}
+      aria-hidden="true"
+    >
       <div
         aria-hidden="true"
         className={s.modal_card_container}
         onClick={(e: any) => e.stopPropagation()}
       >
         <div
+          data-testid="close-modal"
           aria-hidden="true"
           className={s.modal_card_sticky_nav}
           onClick={() => setModal()}

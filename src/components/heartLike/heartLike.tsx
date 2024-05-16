@@ -13,7 +13,7 @@ const HeartLike: React.FC<HeartLikeProps> = () => {
   };
 
   return (
-    <div onClick={handleHeartClick}>
+    <div data-testid="heart-icon" onClick={handleHeartClick}>
       {hasLike ? (
         <RxHeartFilled fontSize="20px" color="red" />
       ) : (
