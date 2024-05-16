@@ -9,6 +9,7 @@ export const handleDate = (date: any) => {
     month: "short",
     year: "numeric",
   });
+
   return formatter.format(parsedDate);
 };
 
@@ -25,6 +26,7 @@ export const handleDynamicBackgroundColor = () => {
 export const handleNameAvatar = (first: string, last: string) => {
   const firstInitial = first.charAt(0).toUpperCase();
   const lastInitial = last.charAt(0).toUpperCase();
+
   return `${firstInitial}${lastInitial}`;
 };
 

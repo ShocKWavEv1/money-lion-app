@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Moneylion code challenge
 
-## Getting Started
+This project was made with Next App Router, SSR, React, Typescript, SASS, and deployed in vercel.
 
-First, run the development server:
+https://money-lion-app.vercel.app
+
+## Run the project
+
+Install node_modules
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm i
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+At the root of folder create a .env file with the following content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  API_BASE_ROUTE="https://stoplight.io/mocks/engine/fullstack-spec/52502230/content"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Start project
 
-## Learn More
+```bash
+  npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run Jest
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run test
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Run specific test
 
-## Deploy on Vercel
+```bash
+  npm run test:watch relative-path/to/test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project breaktrough
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Responsive UI with SASS
+- Error Boundaries
+- SSR
+- Suspense with fallback
+- Components with test up to 100%
+- Coverage file generated
+- Server & Client components
+- Empty state for handling errors boundaries and for no results found
+- Next image for image optimization
+- Next App Folder structure
