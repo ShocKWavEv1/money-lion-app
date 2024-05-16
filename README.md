@@ -48,3 +48,4 @@ Run specific test
 - Empty state for handling errors boundaries and for no results found
 - Next image for image optimization
 - Next App Folder structure
+- Sort array by title string
