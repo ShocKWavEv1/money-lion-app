@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@plaiceholder/next": "^3.0.0",
     "axios": "^1.6.8",
     "next": "14.2.3",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",

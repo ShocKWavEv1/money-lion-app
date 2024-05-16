@@ -50,7 +50,9 @@ const FeedCard: React.FC<CardProps> = ({
           <div className={s.card_body_title}>
             {textData.title ? textData.title : "-"}
           </div>
-          <div className={s.card_body_subtitle}>{textData.subTitle}</div>
+          <div className={s.card_body_subtitle}>
+            {textData.subTitle ? textData.subTitle : "-"}
+          </div>
         </div>
         <div className={s.card_body_text_snippet}>{textData.body}</div>
       </div>
