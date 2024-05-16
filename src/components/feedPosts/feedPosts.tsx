@@ -25,10 +25,6 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
     }
   }, [searchValue]);
 
-  useEffect(() => {
-    console.log(filteredPosts);
-  }, [filteredPosts]);
-
   return (
     <div className={s.feed_posts_container}>
       <Filters
