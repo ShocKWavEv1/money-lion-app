@@ -39,6 +39,7 @@ Run specific test
 ## Project breaktrough
 
 - Responsive UI with SASS
+- Modal view for full post description
 - Error Boundaries
 - SSR
 - Suspense with fallback
