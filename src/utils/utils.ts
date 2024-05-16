@@ -1,5 +1,9 @@
 export const handleDate = (date: any) => {
-  const parsedDate = new Date(date);
+  if (!date || isNaN(new Date(date).getTime())) {
+    return "Invalid Date";
+  }
+
+  const parsedDate: any = new Date(date);
   const formatter = new Intl.DateTimeFormat("en", {
     day: "2-digit",
     month: "short",

@@ -18,7 +18,7 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
     const debounce = setTimeout(() => {
       if (searchValue.length >= 3) {
         const filtered: any = contentCards.filter((post: any) =>
-          post.textData.title.toLowerCase().includes(searchValue.toLowerCase())
+          post.title.toLowerCase().includes(searchValue.toLowerCase())
         );
         setFilteredPosts(filtered);
       } else {

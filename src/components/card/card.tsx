@@ -1,38 +1,43 @@
+import React from "react";
 import Image from "next/image";
 import { CardProps } from "./model";
-import { FiHeart } from "react-icons/fi";
 import s from "./card.module.scss";
 import Avatar from "../avatar/avatar";
 import { handleDate } from "@/utils/utils";
+import HeartLike from "../heartLike/heartLike";
 
 const FeedCard: React.FC<CardProps> = ({
   data,
   handleFullView,
   handleCurrentPost,
 }) => {
-  const { textData, imageUri, comments, metadata } = data;
+  const { title, subTitle, body, imageUri, comments, publishDate, author } =
+    data;
+
   return (
     <div
-      key={textData.title}
+      key={title}
       className={s.card_container}
       aria-hidden="true"
-      onClick={() => {
+      onClick={(e: any) => {
         handleCurrentPost(data);
         handleFullView();
       }}
     >
       <div className={s.card_header_container}>
         <div className={s.card_header_avatar_container}>
-          <Avatar width={30} height={30} textData={textData} />
+          <Avatar width={30} height={30} author={author} />
           <div className={s.card_header_user_container}>
-            {textData.author.first} {textData.author.last}
+            {author.first} {author.last}
             <div className={s.card_header_date_container}>
-              {handleDate(metadata.publishDate)}
+              {handleDate(publishDate)}
             </div>
           </div>
         </div>
         <div className={s.card_header_icon_container}>
-          <FiHeart fontSize="18px" />
+          <div className={s.card_header_icon}>
+            <HeartLike />
+          </div>
         </div>
       </div>
       <div className={s.card_image_container}>
@@ -46,14 +51,12 @@ const FeedCard: React.FC<CardProps> = ({
       </div>
       <div className={s.card_body_container}>
         <div className={s.card_body_title_container}>
-          <div className={s.card_body_title}>
-            {textData.title ? textData.title : "-"}
-          </div>
+          <div className={s.card_body_title}>{title ? title : "-"}</div>
           <div className={s.card_body_subtitle}>
-            {textData.subTitle ? textData.subTitle : "-"}
+            {subTitle ? subTitle : "-"}
           </div>
         </div>
-        <div className={s.card_body_text_snippet}>{textData.body}</div>
+        <div className={s.card_body_text_snippet}>{body}</div>
       </div>
       <div className={s.card_footer_container}>
         <div>{comments.length} Comments</div>

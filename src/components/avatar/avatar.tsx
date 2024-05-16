@@ -6,7 +6,7 @@ import { AvatarProps } from "./model";
 import { handleDynamicBackgroundColor, handleNameAvatar } from "@/utils/utils";
 import { useState } from "react";
 
-const Avatar: React.FC<AvatarProps> = ({ width, height, image, textData }) => {
+const Avatar: React.FC<AvatarProps> = ({ width, height, image, author }) => {
   const [backgroundColor] = useState<string>(() =>
     handleDynamicBackgroundColor()
   );
@@ -29,7 +29,7 @@ const Avatar: React.FC<AvatarProps> = ({ width, height, image, textData }) => {
           style={{ width: "100%", objectFit: "cover", borderRadius: "50em" }}
         />
       ) : (
-        handleNameAvatar(textData.author.first, textData.author.last)
+        handleNameAvatar(author.first, author.last)
       )}
     </div>
   );

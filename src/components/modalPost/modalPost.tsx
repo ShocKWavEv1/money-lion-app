@@ -5,6 +5,7 @@ import s from "./modalPost.module.scss";
 import CommentItem from "../commentItem/commentItem";
 
 const ModalPost: React.FC<ModalPostProps> = ({ currentPost, setModal }) => {
+  const { title, subTitle, body, imageUri, comments } = currentPost;
   return (
     <div className={s.backdrop} onClick={() => setModal()} aria-hidden="true">
       <div
@@ -27,7 +28,7 @@ const ModalPost: React.FC<ModalPostProps> = ({ currentPost, setModal }) => {
         <div className={s.modal_card_image_container}>
           <Image
             className={s.modal_card_image}
-            src={currentPost?.imageUri}
+            src={imageUri}
             alt="title"
             width={200}
             height={230}
@@ -35,21 +36,15 @@ const ModalPost: React.FC<ModalPostProps> = ({ currentPost, setModal }) => {
         </div>
         <div className={s.modal_card_body_container}>
           <div className={s.modal_card_title_container}>
-            <div className={s.modal_card_title}>
-              {currentPost?.textData.title}
-            </div>
-            <div className={s.modal_card_subtitle}>
-              {currentPost?.textData.subTitle}
-            </div>
+            <div className={s.modal_card_title}>{title}</div>
+            <div className={s.modal_card_subtitle}>{subTitle}</div>
           </div>
-          <div className={s.modal_card_body_text_container}>
-            {currentPost?.textData.body}
-          </div>
+          <div className={s.modal_card_body_text_container}>{body}</div>
           <div className={s.modal_card_comments_container}>
-            Comments: {currentPost?.comments.length}
+            Comments: {comments.length}
           </div>
           <div className={s.modal_card_comments_list}>
-            {currentPost.comments.map((item: any, idx: number) => {
+            {comments?.map((item: any, idx: number) => {
               return <CommentItem comment={item} key={item.profilePic} />;
             })}
           </div>

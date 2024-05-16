@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import getData from "./api/getData";
 import FeedPosts from "@/components/feedPosts/feedPosts";
+import getData from "./api/getData/getData";
 
 export default async function Home() {
   const contentCards = await getData();
