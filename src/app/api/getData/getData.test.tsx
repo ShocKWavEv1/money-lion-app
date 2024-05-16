@@ -1,6 +1,7 @@
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import getData from "./getData";
+import { ApiFailedError } from "@/app/lib/exceptions/exceptions";
 
 const mock = new MockAdapter(axios);
 
@@ -50,7 +51,7 @@ describe("getData function", () => {
       }
     );
 
-    const sortedData = transformedData?.sort(
+    const sortedData = transformedData?.toSorted(
       (a: any, b: any) => b.priority - a.priority
     );
 
@@ -61,11 +62,16 @@ describe("getData function", () => {
     expect(result).toEqual(sortedData);
   });
 
-  it("should return an empty array when fetching data fails", async () => {
-    mock.onGet(process.env.API_BASE_ROUTE).reply(500);
+  test("getData throws ApiFailedError on API error", async () => {
+    // Simulate error scenario using mock adapter
+    mock
+      .onGet(process.env.API_BASE_ROUTE)
+      .reply(() => Promise.reject(new Error("API request failed")));
 
-    const result = await getData();
-
-    expect(result).toEqual([]);
+    try {
+      await getData();
+    } catch (error) {
+      expect(error).toBeInstanceOf(ApiFailedError);
+    }
   });
 });

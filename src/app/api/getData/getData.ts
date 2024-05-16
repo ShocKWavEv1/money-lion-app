@@ -1,3 +1,4 @@
+import { ApiFailedError } from "@/app/lib/exceptions/exceptions";
 import axios, { AxiosRequestConfig } from "axios";
 
 export default async function getData(): Promise<any> {
@@ -33,6 +34,6 @@ export default async function getData(): Promise<any> {
 
     return sortedData;
   } catch (error) {
-    return [];
+    throw new ApiFailedError();
   }
 }

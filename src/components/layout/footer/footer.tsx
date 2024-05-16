@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = () => {
         justifyContent: "center",
       }}
     >
-      Challenge made with Next | React | CSS & SSR
+      Challenge made with Next | React | SASS & SSR
     </div>
   );
 };
