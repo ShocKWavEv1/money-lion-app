@@ -15,16 +15,12 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
   const [searchValue, setSearchValue] = useState<string>("");
 
   useEffect(() => {
-    const debounce = setTimeout(() => {
-      if (searchValue.length >= 3) {
-        const filtered: any = contentCards.filter((post: any) =>
-          post.title.toLowerCase().includes(searchValue.toLowerCase())
-        );
-        setFilteredPosts(filtered);
-      }
-    }, 300);
-
-    return () => clearTimeout(debounce);
+    if (searchValue.length >= 3) {
+      const filtered: any = contentCards.filter((post: any) =>
+        post.title.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredPosts(filtered);
+    }
   }, [searchValue]);
 
   useEffect(() => {
