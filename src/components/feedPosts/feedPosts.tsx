@@ -15,10 +15,18 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
   const [searchValue, setSearchValue] = useState<string>("");
 
   useEffect(() => {
-    const filtered: any = contentCards.filter((post: any) =>
-      post.title.toLowerCase().includes(searchValue.toLowerCase())
-    );
-    setFilteredPosts(filtered);
+    const debounce = setTimeout(() => {
+      if (searchValue.length >= 3) {
+        const filtered: any = contentCards.filter((post: any) =>
+          post.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        setFilteredPosts(filtered);
+      } else {
+        setFilteredPosts(contentCards);
+      }
+    }, 300);
+
+    return () => clearTimeout(debounce);
   }, [searchValue]);
 
   useEffect(() => {
@@ -33,16 +41,17 @@ const FeedPosts: React.FC<FeedPostsProps> = ({ contentCards }) => {
         setSearchValue={(val: string) => setSearchValue(val)}
       />
       <div className={s.grid_feed_container}>
-        {filteredPosts?.map((item: any, idx: number) => {
-          return (
-            <FeedCard
-              data={item}
-              key={item.title}
-              handleFullView={() => setIsModal(!isModal)}
-              handleCurrentPost={(post: any) => setCurrentPost(post)}
-            />
-          );
-        })}
+        {filteredPosts.length !== 0 &&
+          filteredPosts?.map((item: any, idx: number) => {
+            return (
+              <FeedCard
+                data={item}
+                key={item.title}
+                handleFullView={() => setIsModal(!isModal)}
+                handleCurrentPost={(post: any) => setCurrentPost(post)}
+              />
+            );
+          })}
       </div>
       {filteredPosts.length === 0 && (
         <EmptyState
