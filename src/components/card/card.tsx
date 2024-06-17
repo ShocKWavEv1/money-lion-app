@@ -11,8 +11,16 @@ const FeedCard: React.FC<CardProps> = ({
   handleFullView,
   handleCurrentPost,
 }) => {
-  const { title, subTitle, body, imageUri, comments, publishDate, author } =
-    data;
+  const {
+    title,
+    subTitle,
+    body,
+    imageUri,
+    comments,
+    publishDate,
+    author,
+    base64,
+  } = data;
 
   return (
     <div
@@ -47,6 +55,8 @@ const FeedCard: React.FC<CardProps> = ({
           width={200}
           height={250}
           className={s.card_image}
+          placeholder="blur"
+          blurDataURL={base64}
         />
       </div>
       <div className={s.card_body_container}>

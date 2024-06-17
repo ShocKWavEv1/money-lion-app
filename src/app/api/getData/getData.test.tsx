@@ -2,6 +2,7 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import getData from "./getData";
 import { ApiFailedError } from "@/app/lib/exceptions/exceptions";
+import getBase64 from "../getBase64";
 
 const mock = new MockAdapter(axios);
 
@@ -35,8 +36,9 @@ describe("getData function", () => {
       ],
     };
 
-    const transformedData = mockResponse?.contentCards?.map(
-      (item: any, idx: number) => {
+    const transformedData = await Promise.all(
+      mockResponse?.contentCards.map(async (item: any) => {
+        const base64 = await getBase64(item.imageUri);
         return {
           publishDate: item.metadata.publishDate,
           priority: item.metadata.priority,
@@ -47,8 +49,9 @@ describe("getData function", () => {
           author: item.textData.author || {},
           id: item.id,
           imageUri: item.imageUri,
+          base64,
         };
-      }
+      })
     );
 
     const sortedData = transformedData?.toSorted(

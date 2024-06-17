@@ -1,5 +1,6 @@
 import { ApiFailedError } from "@/app/lib/exceptions/exceptions";
 import axios, { AxiosRequestConfig } from "axios";
+import getBase64 from "../getBase64";
 
 export default async function getData(): Promise<any> {
   try {
@@ -14,21 +15,25 @@ export default async function getData(): Promise<any> {
 
     const contentData = response.data.contentCards || [];
 
-    const transformedData = contentData?.map((item: any, idx: number) => {
-      return {
-        publishDate: item.metadata.publishDate,
-        priority: item.metadata.priority,
-        comments: item.comments || [],
-        title: item.textData.title,
-        subTitle: item.textData.subTitle,
-        body: item.textData.body,
-        author: item.textData.author || {},
-        id: item.id,
-        imageUri: item.imageUri,
-      };
-    });
+    const transformedData = await Promise.all(
+      contentData.map(async (item: any) => {
+        const base64 = await getBase64(item.imageUri);
+        return {
+          publishDate: item.metadata.publishDate,
+          priority: item.metadata.priority,
+          comments: item.comments || [],
+          title: item.textData.title,
+          subTitle: item.textData.subTitle,
+          body: item.textData.body,
+          author: item.textData.author || {},
+          id: item.id,
+          imageUri: item.imageUri,
+          base64,
+        };
+      })
+    );
 
-    const sortedData = transformedData?.sort(
+    const sortedData = transformedData?.toSorted(
       (a: any, b: any) => b.priority - a.priority
     );
     return sortedData;
